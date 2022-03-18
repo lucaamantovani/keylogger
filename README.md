@@ -7,7 +7,7 @@ Keyloggers are a type of monitoring software designed to record keystrokes made 
 
 Open the terminal and download the repository
 ``` 
-$
+$ https://github.com/lucaamantovani/keylogger
 ```
 Open the directory and install the dependecies
 ```
