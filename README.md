@@ -1,5 +1,5 @@
 # Keylogger Python based
-> DO NOT ATTEMPT TO VIOLATE THE LAW, IF YOU PLANNED TO USE THE CONTET FOR ILLEGAL PURPOSE, I'M NOT RESPONSIBLE OF YOUR ACTIONS.
+> DO NOT ATTEMPT TO VIOLATE THE LAW, IF YOU PLANNED TO USE THE CONTENT FOR ILLEGAL PURPOSE, I'M NOT RESPONSIBLE OF YOUR ACTIONS.
 
 Keyloggers are a type of monitoring software designed to record keystrokes made by a user.
 
@@ -7,7 +7,7 @@ Keyloggers are a type of monitoring software designed to record keystrokes made 
 
 Open the terminal and download the repository
 ``` 
-$ https://github.com/lucaamantovani/keylogger
+$ git clone https://github.com/lucaamantovani/keylogger
 ```
 Open the directory and install the dependecies
 ```
