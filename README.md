@@ -18,7 +18,7 @@ $ pip install -r requirements.txt
 
 Go to `Preferences` > `Security and Privacy` > `Privacy`.
 
-In the `Accessibility` section, enable permissions for the `Terminal` and the reference IDE (e.g. Visual Studio Code).
+In the `Accessibility` section and enable permissions for the `Terminal` application.
 
 Run the `source.py` file.
 
