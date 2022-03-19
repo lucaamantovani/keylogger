@@ -18,7 +18,9 @@ $ pip install -r requirements.txt
 
 Go to `Preferences` > `Security and Privacy` > `Privacy`.
 
-In the `Accessibility` section and enable permissions for the `Terminal` application.
+In the `Monitoring Input` section and enable permissions for your IDE application.
+
+In the `Accesibility` section and enable permissions for the `Terminal` and for the IDE.
 
 Run the `source.py` file.
 

