@@ -14,12 +14,17 @@ Open the directory and install the dependecies
 $ cd keylogger
 $ pip install -r requirements.txt
 ``` 
+### Mac OS
 
 Go to `Preferences` > `Security and Privacy` > `Privacy`.
 
 In the `Accessibility` section, enable permissions for the `Terminal` and the reference IDE (e.g. Visual Studio Code).
 
-Run the `source.py` file. 
+Run the `source.py` file.
+
+### Gmail Account
+
+Go and select `Manage your account` > `Security` and enable `Accessing less secure apps`
 
 ## Useful Resources
 
