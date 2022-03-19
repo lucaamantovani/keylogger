@@ -1,3 +1,6 @@
 pynput
 smtplib
 threading
+colorama
+pyfiglet
+termcolor
