@@ -12,6 +12,10 @@ i'm not be responsible of your actions."""
 print("\n" + disclaimer + "\n")
 
 EMAIL_ADDRESS = input("Email Address: ")
+while "@" not in EMAIL_ADDRESS:
+    print("Wrong mail format, try again\n")
+    EMAIL_ADDRESS = input("Email Address: ")
+
 EMAIL_PASSWD = getpass("Email password: ")
 TIME = float(input("Average sending mail time: "))
 
