@@ -24,7 +24,7 @@ Run the `source.py` file.
 
 ### Gmail Account
 
-Go and select `Manage your account` > `Security` and enable `Accessing less secure apps`
+Select `Manage your account` > `Security` and enable `Accessing less secure apps`
 
 ## Useful Resources
 
