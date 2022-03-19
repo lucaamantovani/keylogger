@@ -3,8 +3,8 @@ from threading import Timer
 from datetime import datetime
 import smtplib
 
-EMAIL_ADDRESS = input("Email Address:")
-EMAIL_PASSWD = input("Email password:")
+EMAIL_ADDRESS = input("Email Address: ")
+EMAIL_PASSWD = input("Email password: ")
 TIME = float(input("Average sending mail time: "))
 
 now = datetime.now()
