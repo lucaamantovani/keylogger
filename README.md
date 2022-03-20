@@ -22,7 +22,10 @@ In the `Monitoring Input` section and enable permissions for your IDE applicatio
 
 In the `Accesibility` section and enable permissions for the `Terminal` and for the IDE.
 
-Run the `source.py` file.
+Run the `source.py` file
+``` 
+$ python3 source.py
+```
 
 ### Gmail Account
 
