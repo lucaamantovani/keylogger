@@ -25,7 +25,7 @@ signal.signal(signal.SIGINT, sigint_handler)
 init(autoreset=True)
 
 print("\n")
-cprint(figlet_format('KEYLOGGER', font='slant')) #attrs=['dark'])
+cprint(figlet_format('KEYLOGGER', font='slant'))
 
 disclaimer = """Do not attempt to violate the law. 
 If you planned to use the content for illegal purpose, 
