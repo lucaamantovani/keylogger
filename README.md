@@ -1,4 +1,4 @@
-# Keylogger Python based
+# Keylogger Script
 > DO NOT ATTEMPT TO VIOLATE THE LAW, IF YOU PLANNED TO USE THE CONTENT FOR ILLEGAL PURPOSE, I'M NOT RESPONSIBLE OF YOUR ACTIONS.
 
 Keyloggers are a type of monitoring software designed to record keystrokes made by a user.
