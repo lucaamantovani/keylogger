@@ -43,7 +43,7 @@ EMAIL_PASSWD = getpass("\nEmail password: ")
 flag = False
 while flag is False:
     try:
-        TIME = float(input("\nAverage sending mail time: "))
+        TIME = float(input("\nSending mail time : "))
         flag = True
     except ValueError:
         print(Fore.YELLOW +"Wrong format value..."+ Style.RESET_ALL)
@@ -76,7 +76,7 @@ def send():
     global msg
     if len(msg)>0: 
         server.sendmail(EMAIL_ADDRESS, EMAIL_ADDRESS, msg)
-        print("[ - ] " + str(datetime.now()) + ": Message Send!")
+        print("[ - ] " + str(datetime.now()) + ": Message Send!\n")
     t1 = Timer(TIME, send)
     t1.daemon = True
     t1.start()
