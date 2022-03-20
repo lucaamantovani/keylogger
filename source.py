@@ -15,8 +15,6 @@ import time
 
 EXEC_TIME_START = time.time()
 
-ERROR_COUNTER = 0
-
 def sigint_handler(signal, frame):
     EXEC_TIME_END = time.time()
     total = round(EXEC_TIME_END - EXEC_TIME_START, 1)
