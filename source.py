@@ -43,7 +43,7 @@ EMAIL_PASSWD = getpass("\nEmail password: ")
 flag = False
 while flag is False:
     try:
-        TIME = float(input("\nSending mail time : "))
+        TIME = float(input("\nSending mail time: "))
         flag = True
     except ValueError:
         print(Fore.YELLOW +"Wrong format value..."+ Style.RESET_ALL)
