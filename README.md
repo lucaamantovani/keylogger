@@ -1,4 +1,14 @@
 # Keylogger Script
+``` 
+    __ __ ________  _______ __________  ________  ______
+   / //_// ____/\ \/ / ___// ____/ __ \/  _/ __ \/_  __/
+  / ,<  / __/    \  /\__ \/ /   / /_/ // // /_/ / / /   
+ / /| |/ /___    / /___/ / /___/ _, _// // ____/ / /    
+/_/ |_/_____/   /_//____/\____/_/ |_/___/_/     /_/  
+   
+ ```                                                        
+
+
 > DO NOT ATTEMPT TO VIOLATE THE LAW, IF YOU PLANNED TO USE THE CONTENT FOR ILLEGAL PURPOSE, I'M NOT RESPONSIBLE OF YOUR ACTIONS.
 
 Keyloggers are a type of monitoring software designed to record keystrokes made by a user.
