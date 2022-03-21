@@ -97,7 +97,6 @@ try:
 except socket.gaierror: 
     print(Fore.LIGHTRED_EX + "\nNo internet connection...\n" + Style.RESET_ALL), exit()
 
-
 try: server.login(EMAIL_ADDRESS, EMAIL_PASSWD), print(Fore.LIGHTGREEN_EX + "\nConnection ESTABLISHED\n" + Style.RESET_ALL)
 except smtplib.SMTPAuthenticationError: print(Fore.LIGHTRED_EX + "\nConnection REFUSED" + Style.RESET_ALL + " (Check credentials or the references)\n"), exit()
 
