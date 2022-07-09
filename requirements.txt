@@ -4,3 +4,4 @@ threading
 colorama
 pyfiglet
 termcolor
+inquirer

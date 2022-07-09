@@ -24,6 +24,18 @@ Open the directory and install the dependecies
 $ cd keylogger
 $ pip install -r requirements.txt
 ``` 
+
+The attacker's email account must be in the following list
+``` 
+Outlook [✓]
+
+Gmail   [x]
+
+Yahoo   [✓]
+
+Hotmail [✓]
+``` 
+
 ### Mac OS
 
 Go to `Preferences` > `Security and Privacy` > `Privacy`.
@@ -37,7 +49,7 @@ Run the `source.py` file
 $ python3 source.py
 ```
 
-### Gmail Account
+### Gmail Account [ DEPRECATED - 2022 ]
 
 Select `Manage your account` > `Security` and enable `Accessing less secure apps`
 

